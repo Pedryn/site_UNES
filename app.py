@@ -1,19 +1,23 @@
 from flask import Flask, render_template
-from jinja2 import Template
 
 app = Flask(__name__)
 
 @app.route("/")
-def index():
-    return render_template ("index.html")
+def home():
+    titulo = "Home"
+    return render_template ("home.html", title = titulo)
+
+@app.route("/home")
+def home2():
+    titulo = "Home"
+    return render_template ("home.html", title = titulo)
 
 @app.route("/quemsomos")
 def quemsomos():
-    return render_template ("quemsomos.html")
+    titulo = "Quem Somos"
+    return render_template ("quemsomos.html", title = titulo)
 
 @app.route("/contato")
 def contato():
-    return render_template ("contato.html")
-
-if __name__ == '__main__':
-    app.run()
+    titulo = "Contato"
+    return render_template ("contato.html", title = titulo)
